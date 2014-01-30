@@ -8,20 +8,20 @@ new Test().add([
         }
     });
 
-function testNatSort1(taskRunner) {
+function testNatSort1(next) {
     var answer = ["a0", "a1", "a1a", "a1b", "a2", "a10", "a20", "111a222"];
     var random = Sort.random(answer.slice());
     var sorted = Sort.nat(random.slice());
 
     if ( answer + "" === sorted + "" ) {
         console.log("testNatSort1 ok");
-        taskRunner && taskRunner.pass();
+        next && next.pass();
     } else {
         console.error("testNatSort1 ng");
-        taskRunner && taskRunner.miss();
+        next && next.miss();
     }
 }
-function testNatSort2(taskRunner) {
+function testNatSort2(next) {
     var answer = [
         "1-2",
         "1-02",
@@ -58,10 +58,10 @@ function testNatSort2(taskRunner) {
 
     if ( answer + "" === sorted + "" ) {
         console.log("testNatSort2 ok");
-        taskRunner && taskRunner.pass();
+        next && next.pass();
     } else {
         console.error("testNatSort2 ng");
-        taskRunner && taskRunner.miss();
+        next && next.miss();
     }
 }
 

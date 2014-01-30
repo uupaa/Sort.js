@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.sort.js",
-  "version":        "0.8.0",
+  "version":        "0.8.1",
   "description":    "Sort.js is nat-sort and random-sort implement.",
   "url":            "https://github.com/uupaa/Sort.js",
   "keywords":       ["natsort", "sort", "array", "uupaa"],
@@ -12,7 +12,10 @@
     "start":        "node node_modules/uupaa.minify.js --keep --output ./lib/Sort.min.js ./lib/Sort.js",
     "test":         "NODE_ENV=production NODE_PATH=lib node --harmony test/index.node.js; open test/index.html"
   },
+  "dependencies": {
+  },
   "devDependencies": {
+    "uupaa.mappedarray.js": "",
     "uupaa.help.js":    "",
     "uupaa.test.js":    "",
     "uupaa.task.js":    "",
