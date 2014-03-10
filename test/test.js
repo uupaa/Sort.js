@@ -2,11 +2,11 @@ new Test().add([
         testNatSort1,
         testNatSort2,
     ]).run().worker(function(err, test) {
-        if (!err) {
+        if (!err && typeof Sort_ !== "undefined") {
             var undo = Test.swap(Sort, Sort_);
 
             new Test(test).run(function(err, test) {
-                undo = Test.undo(undo);
+                Test.undo(undo);
             });
         }
     });
