@@ -3,10 +3,10 @@ new Test().add([
         testNatSort2,
     ]).run().worker(function(err, test) {
         if (!err && typeof Sort_ !== "undefined") {
-            var undo = Test.swap(Sort, Sort_);
+            var name = Test.swap(Sort, Sort_);
 
             new Test(test).run(function(err, test) {
-                Test.undo(undo);
+                Test.undo(name);
             });
         }
     });

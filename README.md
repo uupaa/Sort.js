@@ -1,7 +1,7 @@
 Sort.js
 ==========
 
-Sort.js is nat-sort and random-sort implement.
+nat-sort and random-sort implement.
 
 # Document
 
