@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.sort.js",
-  "version":        "0.8.4",
+  "version":        "0.8.5",
   "description":    "Sort.js is nat-sort and random-sort implement.",
   "url":            "https://github.com/uupaa/Sort.js",
   "keywords":       ["natsort", "sort", "array", "uupaa"],
@@ -9,25 +9,26 @@
     "url":          "https://github.com/uupaa/Sort.js.git"
   },
   "scripts": {
-    "watch":        "node node_modules/uupaa.watch.js --verbose --action build ./lib/Sort.js",
-    "build":        "node node_modules/uupaa.minify.js --keep --option 'formatting pretty_print' --output ./lib/Sort.min.js ./lib/Sort.js",
-    "build-release":"node node_modules/uupaa.minify.js --module all --output ./lib/Sort.min.js",
+    "watch":        "node node_modules/uupaa.watch.js --verbose --action build",
+    "build":        "node node_modules/uupaa.minify.js --verbose --strict --keep --pretty",
+    "build-simple": "node node_modules/uupaa.minify.js --verbose --strict --keep --pretty --nowrap --simple",
+    "build-release":"node node_modules/uupaa.minify.js --verbose --strict --module",
     "test":         "NODE_ENV=production NODE_PATH=lib node --harmony test/index.node.js; open test/index.html",
-    "lint":         "plato --title Sort.js --jshint .jshintrc -d lint/plato lib/Sort.js; open lint/plato/index.html"
+    "lint":         "node node_modules/uupaa.plato.js; open lint/plato/index.html"
   },
-  "build": {
-    "all": { "lib/Sort.js": "" },
-    "node": { },
-    "worker": { },
-    "browser": { }
+  "x-build": {
+    "inputs":       ["lib/Sort.js"],
+    "output":       "lib/Sort.min.js"
   },
   "dependencies": {
   },
   "devDependencies": {
     "uupaa.valid.js":   "",
     "uupaa.help.js":    "",
-    "uupaa.test.js":    "",
     "uupaa.task.js":    "",
+    "uupaa.test.js":    "",
+    "uupaa.watch.js":   "",
+    "uupaa.plato.js":   "",
     "uupaa.minify.js":  ""
   },
   "lib":            "./lib/",

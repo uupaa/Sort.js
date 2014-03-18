@@ -1,12 +1,16 @@
 new Test().add([
         testNatSort1,
         testNatSort2,
-    ]).run().worker(function(err, test) {
-        if (!err && typeof Sort_ !== "undefined") {
-            var name = Test.swap(Sort, Sort_);
+    ]).run(function(err, test) {
+        if (1) {
+            err || test.worker(function(err, test) {
+                if (!err && typeof Sort_ !== "undefined") {
+                    var name = Test.swap(Sort, Sort_);
 
-            new Test(test).run(function(err, test) {
-                Test.undo(name);
+                    new Test(test).run(function(err, test) {
+                        Test.undo(name);
+                    });
+                }
             });
         }
     });
