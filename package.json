@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.sort.js",
-  "version":        "0.8.6",
+  "version":        "0.8.7",
   "description":    "Sort.js is nat-sort and random-sort implement.",
   "url":            "https://github.com/uupaa/Sort.js",
   "keywords":       ["natsort", "sort", "array", "uupaa", "WebModule"],
