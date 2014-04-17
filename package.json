@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.sort.js",
-  "version":        "0.8.7",
+  "version":        "0.8.8",
   "description":    "Sort.js is nat-sort and random-sort implement.",
   "url":            "https://github.com/uupaa/Sort.js",
   "keywords":       ["natsort", "sort", "array", "uupaa", "WebModule"],
@@ -13,7 +13,9 @@
     "build":        "node node_modules/uupaa.minify.js --verbose --strict --keep --pretty",
     "build-simple": "node node_modules/uupaa.minify.js --verbose --strict --keep --pretty --nowrap --simple",
     "build-release":"node node_modules/uupaa.minify.js --verbose --strict --module",
-    "test":         "NODE_ENV=production NODE_PATH=lib node --harmony test/index.node.js; open test/index.html",
+    "test":         "npm run test-node; npm run test-browser",
+    "test-node":    "NODE_ENV=production NODE_PATH=lib node --harmony test/index.node.js",
+    "test-browser": "open test/index.html",
     "lint":         "node node_modules/uupaa.plato.js; open lint/plato/index.html"
   },
   "x-build": {
@@ -38,5 +40,3 @@
   "license":        "MIT",
   "contributors":   []
 }
-
-
