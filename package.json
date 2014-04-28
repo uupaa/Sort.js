@@ -1,6 +1,6 @@
 {
   "name":           "uupaa.sort.js",
-  "version":        "0.8.9",
+  "version":        "0.8.10",
   "description":    "Sort.js is nat-sort and random-sort implement.",
   "url":            "https://github.com/uupaa/Sort.js",
   "keywords":       ["natsort", "sort", "array", "uupaa", "WebModule"],
@@ -14,17 +14,25 @@
     "build-simple": "node node_modules/uupaa.minify.js --verbose --strict --keep --pretty --nowrap --simple",
     "build-release":"node node_modules/uupaa.minify.js --verbose --strict --module",
     "test":         "npm run test-node; npm run test-browser",
+    "test-page":    "node node_modules/uupaa.test.js/bin/TestPage.js --verbose",
+    "test-debug":   "NODE_ENV=production NODE_PATH=lib node --debug-brk --harmony test/index.node.js",
     "test-node":    "NODE_ENV=production NODE_PATH=lib node --harmony test/index.node.js",
     "test-browser": "open test/index.html",
     "lint":         "node node_modules/uupaa.plato.js; open lint/plato/index.html"
   },
   "x-build": {
-    "inputs":       ["lib/Sort.js"],
-    "output":       "release/Sort.min.js"
+    "files":        ["lib/Sort.js"],
+    "output":       "release/Sort.min.js",
+    "target":       ["all"],
+    "module": {
+      "develop":    ["uupaa.valid.js"],
+      "release":    []
+    }
   },
   "dependencies": {
   },
   "devDependencies": {
+    "uupaa.nodemodule.js": "",
     "uupaa.console.js": "",
     "uupaa.valid.js":   "",
     "uupaa.help.js":    "",
