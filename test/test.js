@@ -1,19 +1,18 @@
-new Test().add([
+var ModuleTest = (function(global) {
+
+return new Test({
+        disable:    false,
+        node:       true,
+        browser:    true,
+        worker:     true,
+        button:     true,
+        both:       true,
+        primary:    global["Sort"],
+        secondary:  global["Sort_"],
+    }).add([
         testNatSort1,
         testNatSort2,
-    ]).run(function(err, test) {
-        if (1) {
-            err || test.worker(function(err, test) {
-                if (!err && typeof Sort_ !== "undefined") {
-                    var name = Test.swap(Sort, Sort_);
-
-                    new Test(test).run(function(err, test) {
-                        Test.undo(name);
-                    });
-                }
-            });
-        }
-    });
+    ]).run().clone();
 
 function testNatSort1(next) {
     var answer = ["a0", "a1", "a1a", "a1b", "a2", "a10", "a20", "111a222"];
@@ -72,4 +71,5 @@ function testNatSort2(next) {
     }
 }
 
+})((this || 0).self || global);
 
