@@ -1,14 +1,12 @@
-var ModuleTest = (function(global) {
+var ModuleTestSort = (function(global) {
 
-return new Test({
+return new Test("Sort", {
         disable:    false,
-        node:       true,
         browser:    true,
         worker:     true,
+        node:       true,
         button:     true,
         both:       true,
-        primary:    global["Sort"],
-        secondary:  global["Sort_"],
     }).add([
         testNatSort1,
         testNatSort2,
@@ -20,13 +18,12 @@ function testNatSort1(next) {
     var sorted = Sort.nat(random.slice());
 
     if ( answer + "" === sorted + "" ) {
-        console.log("testNatSort1 ok");
         next && next.pass();
     } else {
-        console.error("testNatSort1 ng");
         next && next.miss();
     }
 }
+
 function testNatSort2(next) {
     var answer = [
         "1-2",
@@ -63,10 +60,8 @@ function testNatSort2(next) {
     var sorted = Sort.nat(random.slice());
 
     if ( answer + "" === sorted + "" ) {
-        console.log("testNatSort2 ok");
         next && next.pass();
     } else {
-        console.error("testNatSort2 ng");
         next && next.miss();
     }
 }
