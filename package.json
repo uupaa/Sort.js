@@ -1,9 +1,9 @@
 {
   "name":           "uupaa.sort.js",
-  "version":        "0.8.12",
+  "version":        "0.8.13",
   "description":    "Sort.js is nat-sort and random-sort implement.",
   "url":            "https://github.com/uupaa/Sort.js",
-  "keywords":       ["natsort", "sort", "array", "uupaa", "WebModule"],
+  "keywords":       ["natsort", "sort", "array", "uupaa", "WebModule", "Stable"],
   "repository": {
     "type":         "git",
     "url":          "https://github.com/uupaa/Sort.js.git"
@@ -24,6 +24,7 @@
     "files":        ["lib/Sort.js"],
     "output":       "release/Sort.min.js",
     "target":       ["all"],
+    "labels":       ["@dev"],
     "module": {
       "develop":    ["uupaa.valid.js"],
       "release":    []
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "uupaa.nodemodule.js": "",
+    "uupaa.reflection.js": "",
     "uupaa.console.js": "",
     "uupaa.valid.js":   "",
     "uupaa.help.js":    "",
