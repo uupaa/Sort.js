@@ -12,19 +12,19 @@ return new Test("Sort", {
         testNatSort2,
     ]).run().clone();
 
-function testNatSort1(next) {
+function testNatSort1(test, pass, miss) {
     var answer = ["a0", "a1", "a1a", "a1b", "a2", "a10", "a20", "111a222"];
     var random = Sort.random(answer.slice());
     var sorted = Sort.nat(random.slice());
 
     if ( answer + "" === sorted + "" ) {
-        next && next.pass();
+        test.done(pass());
     } else {
-        next && next.miss();
+        test.done(miss());
     }
 }
 
-function testNatSort2(next) {
+function testNatSort2(test, pass, miss) {
     var answer = [
         "1-2",
         "1-02",
@@ -60,9 +60,9 @@ function testNatSort2(next) {
     var sorted = Sort.nat(random.slice());
 
     if ( answer + "" === sorted + "" ) {
-        next && next.pass();
+        test.done(pass());
     } else {
-        next && next.miss();
+        test.done(miss());
     }
 }
 
