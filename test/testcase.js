@@ -1,16 +1,26 @@
 var ModuleTestSort = (function(global) {
 
-return new Test("Sort", {
-        disable:    false,
-        browser:    true,
-        worker:     true,
-        node:       true,
-        button:     true,
-        both:       true,
+var _isNodeOrNodeWebKit = !!global.global;
+var _runOnNodeWebKit =  _isNodeOrNodeWebKit &&  /native/.test(setTimeout);
+var _runOnNode       =  _isNodeOrNodeWebKit && !/native/.test(setTimeout);
+var _runOnWorker     = !_isNodeOrNodeWebKit && "WorkerLocation" in global;
+var _runOnBrowser    = !_isNodeOrNodeWebKit && "document" in global;
+
+var test = new Test("Sort", {
+        disable:    false, // disable all tests.
+        browser:    true,  // enable browser test.
+        worker:     true,  // enable worker test.
+        node:       true,  // enable node test.
+        nw:         true,  // enable nw.js test.
+        button:     true,  // show button.
+        both:       true,  // test the primary and secondary modules.
+        ignoreError:false, // ignore error.
     }).add([
         testNatSort1,
         testNatSort2,
-    ]).run().clone();
+        testNumberSort1,
+        testNumberSort2,
+    ]);
 
 function testNatSort1(test, pass, miss) {
     var answer = ["a0", "a1", "a1a", "a1b", "a2", "a10", "a20", "111a222"];
@@ -65,6 +75,34 @@ function testNatSort2(test, pass, miss) {
         test.done(miss());
     }
 }
+
+function testNumberSort1(test, pass, miss) {
+    var answer = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+    var random = Sort.random(answer.slice());
+    var sorted = Sort.number(random.slice());
+
+    if ( answer + "" === sorted + "" ) {
+        test.done(pass());
+    } else {
+        test.done(miss());
+    }
+}
+
+function testNumberSort2(test, pass, miss) {
+    var answer = [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 ];
+
+    var random = Sort.random(answer.slice());
+    var sorted = Sort.number(random.slice());
+
+    if ( answer + "" === sorted + "" ) {
+        test.done(pass());
+    } else {
+        test.done(miss());
+    }
+}
+
+return test.run().clone();
 
 })((this || 0).self || global);
 

@@ -2,23 +2,21 @@
 
 [![npm](https://nodei.co/npm/uupaa.sort.js.png?downloads=true&stars=true)](https://nodei.co/npm/uupaa.sort.js/)
 
-nat-sort and random-sort implement.
+Sort functions.
 
 ## Document
 
 - [Sort.js wiki](https://github.com/uupaa/Sort.js/wiki/Sort)
-- [Development](https://github.com/uupaa/WebModule/wiki/Development)
 - [WebModule](https://github.com/uupaa/WebModule)
     - [Slide](http://uupaa.github.io/Slide/slide/WebModule/index.html)
     - [Development](https://github.com/uupaa/WebModule/wiki/Development)
 
+## Run on
 
-## How to use
-
-### Browser
+### Browser and node-webkit
 
 ```js
-<script src="lib/Sort.js">
+<script src="lib/Sort.js"></script>
 <script>
 console.log( Sort.nat(["aa-123", "aa-10", "aa-100"]) ); // ["aa-10", "aa-100", "aa-123"]
 </script>
@@ -29,14 +27,12 @@ console.log( Sort.nat(["aa-123", "aa-10", "aa-100"]) ); // ["aa-10", "aa-100", "
 ```js
 importScripts("lib/Sort.js");
 
-console.log( Sort.nat(["aa-123", "aa-10", "aa-100"]) ); // ["aa-10", "aa-100", "aa-123"]
 ```
 
 ### Node.js
 
 ```js
-var Sort = require("lib/Sort.js");
+require("lib/Sort.js");
 
-console.log( Sort.nat(["aa-123", "aa-10", "aa-100"]) ); // ["aa-10", "aa-100", "aa-123"]
 ```
 
