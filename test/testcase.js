@@ -1,10 +1,6 @@
 var ModuleTestSort = (function(global) {
 
-var _isNodeOrNodeWebKit = !!global.global;
-var _runOnNodeWebKit =  _isNodeOrNodeWebKit &&  /native/.test(setTimeout);
-var _runOnNode       =  _isNodeOrNodeWebKit && !/native/.test(setTimeout);
-var _runOnWorker     = !_isNodeOrNodeWebKit && "WorkerLocation" in global;
-var _runOnBrowser    = !_isNodeOrNodeWebKit && "document" in global;
+global["BENCHMARK"] = false;
 
 var test = new Test("Sort", {
         disable:    false, // disable all tests.
@@ -15,14 +11,33 @@ var test = new Test("Sort", {
         button:     true,  // show button.
         both:       true,  // test the primary and secondary modules.
         ignoreError:false, // ignore error.
+        callback:   function() {
+        },
+        errorback:  function(error) {
+        }
     }).add([
-        testNatSort1,
-        testNatSort2,
-        testNumberSort1,
-        testNumberSort2,
+        testSort_NatSort1,
+        testSort_NatSort2,
+        testSort_NumberSort1,
+        testSort_NumberSort2,
     ]);
 
-function testNatSort1(test, pass, miss) {
+if (IN_BROWSER || IN_NW) {
+    test.add([
+        // browser and node-webkit test
+    ]);
+} else if (IN_WORKER) {
+    test.add([
+        // worker test
+    ]);
+} else if (IN_NODE) {
+    test.add([
+        // node.js and io.js test
+    ]);
+}
+
+// --- test cases ------------------------------------------
+function testSort_NatSort1(test, pass, miss) {
     var answer = ["a0", "a1", "a1a", "a1b", "a2", "a10", "a20", "111a222"];
     var random = Sort.random(answer.slice());
     var sorted = Sort.nat(random.slice());
@@ -34,7 +49,7 @@ function testNatSort1(test, pass, miss) {
     }
 }
 
-function testNatSort2(test, pass, miss) {
+function testSort_NatSort2(test, pass, miss) {
     var answer = [
         "1-2",
         "1-02",
@@ -76,7 +91,7 @@ function testNatSort2(test, pass, miss) {
     }
 }
 
-function testNumberSort1(test, pass, miss) {
+function testSort_NumberSort1(test, pass, miss) {
     var answer = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 
     var random = Sort.random(answer.slice());
@@ -89,7 +104,7 @@ function testNumberSort1(test, pass, miss) {
     }
 }
 
-function testNumberSort2(test, pass, miss) {
+function testSort_NumberSort2(test, pass, miss) {
     var answer = [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 ];
 
     var random = Sort.random(answer.slice());
@@ -102,7 +117,7 @@ function testNumberSort2(test, pass, miss) {
     }
 }
 
-return test.run().clone();
+return test.run();
 
-})((this || 0).self || global);
+})(GLOBAL);
 
