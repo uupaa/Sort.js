@@ -39,8 +39,8 @@ if (IN_BROWSER || IN_NW) {
 // --- test cases ------------------------------------------
 function testSort_NatSort1(test, pass, miss) {
     var answer = ["a0", "a1", "a1a", "a1b", "a2", "a10", "a20", "111a222"];
-    var random = Sort.random(answer.slice());
-    var sorted = Sort.nat(random.slice());
+    var random = WebModule.Sort.random(answer.slice());
+    var sorted = WebModule.Sort.nat(random.slice());
 
     if ( answer + "" === sorted + "" ) {
         test.done(pass());
@@ -81,8 +81,8 @@ function testSort_NatSort2(test, pass, miss) {
         "x2-y08",
         "x8-y8"
     ];
-    var random = Sort.random(answer.slice());
-    var sorted = Sort.nat(random.slice());
+    var random = WebModule.Sort.random(answer.slice());
+    var sorted = WebModule.Sort.nat(random.slice());
 
     if ( answer + "" === sorted + "" ) {
         test.done(pass());
@@ -94,8 +94,8 @@ function testSort_NatSort2(test, pass, miss) {
 function testSort_NumberSort1(test, pass, miss) {
     var answer = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 
-    var random = Sort.random(answer.slice());
-    var sorted = Sort.number(random.slice());
+    var random = WebModule.Sort.random(answer.slice());
+    var sorted = WebModule.Sort.number(random.slice());
 
     if ( answer + "" === sorted + "" ) {
         test.done(pass());
@@ -107,8 +107,8 @@ function testSort_NumberSort1(test, pass, miss) {
 function testSort_NumberSort2(test, pass, miss) {
     var answer = [ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7 ];
 
-    var random = Sort.random(answer.slice());
-    var sorted = Sort.number(random.slice());
+    var random = WebModule.Sort.random(answer.slice());
+    var sorted = WebModule.Sort.number(random.slice());
 
     if ( answer + "" === sorted + "" ) {
         test.done(pass());

@@ -1,38 +1,36 @@
-# Sort.js [![Build Status](https://travis-ci.org/uupaa/Sort.js.png)](http://travis-ci.org/uupaa/Sort.js)
+# Sort.js [![Build Status](https://travis-ci.org/uupaa/Sort.js.svg)](https://travis-ci.org/uupaa/Sort.js)
 
-[![npm](https://nodei.co/npm/uupaa.sort.js.png?downloads=true&stars=true)](https://nodei.co/npm/uupaa.sort.js/)
+[![npm](https://nodei.co/npm/uupaa.sort.js.svg?downloads=true&stars=true)](https://nodei.co/npm/uupaa.sort.js/)
 
 Sort functions.
 
-## Document
 
-- [Sort.js wiki](https://github.com/uupaa/Sort.js/wiki/Sort)
-- [WebModule](https://github.com/uupaa/WebModule)
-    - [Slide](http://uupaa.github.io/Slide/slide/WebModule/index.html)
-    - [Development](https://github.com/uupaa/WebModule/wiki/Development)
+- Sort.js made of [WebModule](https://github.com/uupaa/WebModule).
+- [Spec](https://github.com/uupaa/Sort.js/wiki/Sort)
 
-## Run on
-
-### Browser and node-webkit
+## Browser and NW.js(node-webkit)
 
 ```js
-<script src="lib/Sort.js"></script>
+<script src="<module-dir>/lib/WebModule.js"></script>
+<script src="<module-dir>/lib/Sort.js"></script>
 <script>
-console.log( Sort.nat(["aa-123", "aa-10", "aa-100"]) ); // ["aa-10", "aa-100", "aa-123"]
+console.log( WebModule.Sort.nat(["aa-123", "aa-10", "aa-100"]) ); // ["aa-10", "aa-100", "aa-123"]
 </script>
 ```
 
-### WebWorkers
+## WebWorkers
 
 ```js
-importScripts("lib/Sort.js");
+importScripts("<module-dir>lib/WebModule.js");
+importScripts("<module-dir>lib/Sort.js");
 
 ```
 
-### Node.js
+## Node.js
 
 ```js
-require("lib/Sort.js");
+require("<module-dir>lib/WebModule.js");
+require("<module-dir>lib/Sort.js");
 
 ```
 

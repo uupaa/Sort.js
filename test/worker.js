@@ -12,9 +12,9 @@ onmessage = function(event) {
         self.console.table = function() {};
     }
 
-    importScripts("../lib/WebModuleGlobal.js");
+    importScripts("../lib/WebModule.js");
 
-    importScripts("../node_modules/uupaa.hash.js/lib/Hash.js");
+    
     importScripts("wmtools.js");
     importScripts("../lib/Sort.js");
     importScripts("../release/Sort.w.min.js");
